@@ -111,6 +111,15 @@ public class TechJobs {
     // Print a list of jobs
     private static void printJobs(ArrayList<HashMap<String, String>> someJobs) {
 
+
+        for(HashMap<String, String> hashMap : someJobs){
+            //1. columnChoices
+            for(String key : hashMap.keySet()){ //key =core competency
+                System.out.println("Key: "+key+ "Value: "+ hashMap.get(key));
+
+            }
+        }
+
         System.out.println("printJobs is not implemented yet");
     }
 }
