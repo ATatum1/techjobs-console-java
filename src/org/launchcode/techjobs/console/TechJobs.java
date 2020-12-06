@@ -3,7 +3,7 @@ package org.launchcode.techjobs.console;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Scanner;
-
+import java.util.Map;
 /**
  * Created by LaunchCode
  */
@@ -63,7 +63,8 @@ public class TechJobs {
                 if (searchField.equals("all")) {
                     System.out.println("Search all fields not yet implemented.");
                 } else {
-                    printJobs(JobData.findByColumnAndValue(searchField, searchTerm));
+                   //System.out.println(JobData.findByColumnAndValue(searchField, searchTerm));
+                   printJobs(JobData.findByColumnAndValue(searchField, searchTerm));
                 }
             }
         }
@@ -110,16 +111,42 @@ public class TechJobs {
 
     // Print a list of jobs
     private static void printJobs(ArrayList<HashMap<String, String>> someJobs) {
+        if(someJobs.size() == 0){
+            System.out.println("No job results.");
+            return;
+        }else {
+
+            for (HashMap<String, String> hashMap : someJobs) {
+                System.out.println("*****");
+                //1. columnChoices
+                for (String key : hashMap.keySet()) { //key =core competency
+                    System.out.println(key + ": " + hashMap.get(key));
+                }
 
 
-        for(HashMap<String, String> hashMap : someJobs){
-            //1. columnChoices
-            for(String key : hashMap.keySet()){ //key =core competency
-                System.out.println("Key: "+key+ "Value: "+ hashMap.get(key));
+                //If searchTerm is not found, print message that No jobs were found.
 
+                System.out.println("*****");
+                System.out.println(" ");
             }
-        }
 
+
+        }
+//       for(HashMap<String, String> columnChoices : someJobs){
+//           for(Map.Entry<String, String> columnKey : columnChoices.entrySet()){
+//
+//        System.out.println(columnKey.get(columnKey));
+//
+//         }
+
+//        for(Map.Entry<String, String> columnChoices : someJobs){
+//            for(Map.Entry<String, String> columnKey : columnChoices.entrySet()){
+//
+//         System.out.println(columnKey.get(columnKey));
+//
+//           }
+//
+//       }
         System.out.println("printJobs is not implemented yet");
     }
 }
