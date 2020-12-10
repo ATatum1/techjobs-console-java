@@ -131,7 +131,7 @@ public class JobData {
     }
 
 
-    public static ArrayList<HashMap<String, String>> findByValue(String value) {
+    public static ArrayList<HashMap<String, String>> findByValue(String column,String value) {
         //public static ArrayList<HashMap<String, String>> findByColumnAndValue(String column, String value) {
 
         loadData();
@@ -142,53 +142,54 @@ public class JobData {
         //if (column.equals("all")) {
 
         // String jobs = " ";
-        for (HashMap<String, String> rowValue : allJobs) {
+        for (HashMap<String, String> row : allJobs) {
 
-            //for (String key : row.keySet()) { //key =core competency
+            for (String key : row.keySet()) { //key =core competency
 
-            //String aValue = rowValue.get(value);
-            //String aJob =  rowValue.get(value);
-                if (rowValue.containsValue(value)) {
-                    jobs.add(rowValue);
+                String aValue = row.get(key);
+                //String aJob =  rowValue.get(value);
+                if (aValue.contains(value)) {
+                    jobs.add(row);
+                    break;
 
                     //System.out.println(key + ": " + row.get(key));
                 }
-            //}
+                //}
 //                //System.out.println(row);
 
-            //String aValue = row.get(column);
-            //if (row.containsValue(value)) {
-            //System.out.println("testing" + row);
+                //String aValue = row.get(column);
+                //if (row.containsValue(value)) {
+                //System.out.println("testing" + row);
 
-            //jobs.add(row);
+                //jobs.add(row);
 //                    //System.out.println(row);
-            //  }//end if
-            //String job = " ";
-            //for (Map.Entry<String, String> entry : allJobs.get()) {
-            //Object jobEntry = entry.getValue();
-            // HashMap<Object, Object> hashMap;
-            //for (String valueKey : hashMap.keySet()) { //key =core competency
-            //String job = " ";
-            //   for (Map.Entry<String, String> entry :  entry.getValue(){
+                //  }//end if
+                //String job = " ";
+                //for (Map.Entry<String, String> entry : allJobs.get()) {
+                //Object jobEntry = entry.getValue();
+                // HashMap<Object, Object> hashMap;
+                //for (String valueKey : hashMap.keySet()) { //key =core competency
+                //String job = " ";
+                //   for (Map.Entry<String, String> entry :  entry.getValue(){
 
 
-            //Object jobValue = row.getValue();
-            //job = job + " " + jobValue;
+                //Object jobValue = row.getValue();
+                //job = job + " " + jobValue;
 
-            //System.out.println("This part runs");
-            //if (jobs.contains(value)) {
+                //System.out.println("This part runs");
+                //if (jobs.contains(value)) {
 
-            //jobs.add(allJobs.get(Integer.parseInt(job)));
+                //jobs.add(allJobs.get(Integer.parseInt(job)));
 
 
-            // }
-            //System.out.println(key + ": " + hashMap.get(key));
-            //   }
+                // }
+                //System.out.println(key + ": " + hashMap.get(key));
+                //   }
 
-            //  System.out.println(entry.getKey() + entry.getValue());
-            //System.out.println("****");
-            //System.out.println(" ");
-            // }
+                //  System.out.println(entry.getKey() + entry.getValue());
+                //System.out.println("****");
+                //System.out.println(" ");
+                // }
 
 
 //            loadData();
@@ -206,11 +207,17 @@ public class JobData {
 //        }
 
 
+            }
 
         }
-    return jobs;
+        return jobs;
     }
-}
+
+
+ }
+
+
+
 
                 // }
 
