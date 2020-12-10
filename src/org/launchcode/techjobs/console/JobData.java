@@ -76,10 +76,13 @@ public class JobData {
 
         ArrayList<HashMap<String, String>> jobs = new ArrayList<>();
 
+        value = value.toLowerCase();
 
         for (HashMap<String, String> row : allJobs) {
 
             String aValue = row.get(column);
+
+            aValue = aValue.toLowerCase();
 
             if (aValue.contains(value)) {
                 jobs.add(row);
@@ -136,75 +139,27 @@ public class JobData {
 
         loadData();
         ArrayList<HashMap<String, String>> jobs = new ArrayList<>();
-        // for()
+
+        value = value.toLowerCase();
 
 
         //if (column.equals("all")) {
 
-        // String jobs = " ";
+
         for (HashMap<String, String> row : allJobs) {
 
             for (String key : row.keySet()) { //key =core competency
 
                 String aValue = row.get(key);
                 //String aJob =  rowValue.get(value);
+                aValue = aValue.toLowerCase();
+
                 if (aValue.contains(value)) {
                     jobs.add(row);
                     break;
 
                     //System.out.println(key + ": " + row.get(key));
                 }
-                //}
-//                //System.out.println(row);
-
-                //String aValue = row.get(column);
-                //if (row.containsValue(value)) {
-                //System.out.println("testing" + row);
-
-                //jobs.add(row);
-//                    //System.out.println(row);
-                //  }//end if
-                //String job = " ";
-                //for (Map.Entry<String, String> entry : allJobs.get()) {
-                //Object jobEntry = entry.getValue();
-                // HashMap<Object, Object> hashMap;
-                //for (String valueKey : hashMap.keySet()) { //key =core competency
-                //String job = " ";
-                //   for (Map.Entry<String, String> entry :  entry.getValue(){
-
-
-                //Object jobValue = row.getValue();
-                //job = job + " " + jobValue;
-
-                //System.out.println("This part runs");
-                //if (jobs.contains(value)) {
-
-                //jobs.add(allJobs.get(Integer.parseInt(job)));
-
-
-                // }
-                //System.out.println(key + ": " + hashMap.get(key));
-                //   }
-
-                //  System.out.println(entry.getKey() + entry.getValue());
-                //System.out.println("****");
-                //System.out.println(" ");
-                // }
-
-
-//            loadData();
-//
-//        ArrayList<HashMap<String, String>> jobs = new ArrayList<>();
-//
-//
-//        for (HashMap<String, String> row : allJobs) {
-//
-//            String aValue = row.get(column);
-//
-//            if (aValue.contains(value)) {
-//                jobs.add(row);
-//            }
-//        }
 
 
             }
